@@ -28,11 +28,11 @@ def dashboard(request):
             total = u.total_assigned or 0
             done = u.completed_tasks or 0
             u.completion_rate = (done / total * 100) if total > 0 else 0
-        context = {'admin': True, 'users': users, 'tasks': tasks}
+            context = {'admin': True, 'users': users, 'tasks': tasks}
     else:
         tasks = Task.objects.filter(assigned_to=user).order_by('-created_at')
         context = {'admin': False, 'tasks': tasks}
-    return render(request, 'dashboard.html', context)
+    return render(request, 'dashboard_new.html', context)
 
 
 @login_required

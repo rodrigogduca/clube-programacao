@@ -1,27 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>{{ task.title }}</h2>
-  <p>{{ task.description }}</p>
-  <p>Atribuída a: {{ task.assigned_to }}</p>
-  <p>Estado: {% if task.completed %}Concluída{% else %}Pendente{% endif %}</p>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card-soft mb-3">
+        <h3 class="mb-1">{{ task.title }}</h3>
+        <div class="text-muted mb-2">Atribuída a: {{ task.assigned_to }} • {{ task.created_at|date:"d/m/Y H:i" }}</div>
+        <p>{{ task.description }}</p>
+        <div class="mt-2">Estado: {% if task.completed %}<span class="badge-complete">Concluída</span>{% else %}<span class="badge-pending">Pendente</span>{% endif %}</div>
+      </div>
 
-  <hr>
-  <h5>Discussão</h5>
-  <ul>
-    {% for c in task.comments.all %}
-      <li><strong>{{ c.author }}:</strong> {{ c.content }} <small>({{ c.created_at }})</small></li>
-    {% empty %}
-      <li>Sem comentários.</li>
-    {% endfor %}
-  </ul>
+      <div class="card-soft">
+        <h5>Discussão</h5>
+        <ul class="list-unstyled">
+          {% for c in task.comments.all %}
+            <li class="mb-2"><strong>{{ c.author }}:</strong> {{ c.content }} <small class="text-muted">({{ c.created_at|date:"d/m/Y H:i" }})</small></li>
+          {% empty %}
+            <li class="text-muted">Sem comentários.</li>
+          {% endfor %}
+        </ul>
 
-  <form method="post">
-    {% csrf_token %}
-    <div class="mb-3">
-      <label for="content" class="form-label">Adicionar comentário</label>
-      <textarea name="content" id="content" class="form-control" rows="3"></textarea>
+        <form method="post" class="mt-3">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="content" class="form-label">Adicionar comentário</label>
+            <textarea name="content" id="content" class="form-control" rows="3"></textarea>
+          </div>
+          <button class="btn btn-orange" type="submit">Enviar</button>
+        </form>
+      </div>
     </div>
-    <button class="btn btn-primary" type="submit">Enviar</button>
-  </form>
+
+    <div class="col-md-4">
+      <div class="card-soft">
+        <h6>Detalhes</h6>
+        <p class="mb-1"><strong>Criado em:</strong> {{ task.created_at|date:"d/m/Y H:i" }}</p>
+        <p class="mb-1"><strong>Atribuído a:</strong> {{ task.assigned_to }}</p>
+        <p class="mb-1"><strong>Status:</strong> {% if task.completed %}Concluída{% else %}Pendente{% endif %}</p>
+      </div>
+    </div>
+  </div>
 {% endblock %}

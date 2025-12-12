@@ -1,13 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="text-center">
-    <h1 class="text-orange">Clube de Programação</h1>
-    <p>Bem-vindo ao nosso clube: comunidade de estudos, desafios e projetos.</p>
-    <p>Se você é membro, faça login para ver suas tarefas.</p>
-    <a class="btn btn-lg btn-orange" href="/accounts/login/">Entrar</a>
+  <section class="hero mb-4">
+    <div class="row align-items-center">
+      <div class="col-md-7">
+        <h1 class="display-5 text-dark">Clube de Programação</h1>
+        <p class="lead">Comunidade estudantil para aprender, colaborar e construir projetos reais.</p>
+        <p class="mt-3">
+          <a class="btn btn-orange btn-lg me-2" href="/accounts/login/">Entrar</a>
+          <a class="btn btn-outline-orange btn-lg" href="/sobre/">Saber mais</a>
+        </p>
+      </div>
+      <div class="col-md-5 text-center">
+        <img src="/static/img/illustration-code.svg" alt="coding" style="max-width:220px;opacity:0.95">
+      </div>
+    </div>
+  </section>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card-soft">
+        <h5>Workshops</h5>
+        <p class="mb-0">Aulas práticas e hands-on para aprender novas tecnologias.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-soft">
+        <h5>Maratonas</h5>
+        <p class="mb-0">Competições e desafios para desenvolver raciocínio e lógica.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-soft">
+        <h5>Mentorias</h5>
+        <p class="mb-0">Apoio entre membros, orientação para projetos e dúvidas.</p>
+      </div>
+    </div>
   </div>
-  <hr>
-  <h3>O que fazemos</h3>
-  <p>Workshops, maratonas, mentorias e pequenos projetos para aprender programação.</p>
 {% endblock %}
