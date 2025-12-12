@@ -1,0 +1,14 @@
+:root {
+  --orange: #ff6a00;
+  --dark: #222;
+}
+
+.text-orange { color: var(--orange) !important; }
+.btn-orange { background: var(--orange); color: #fff; border: none; }
+.navbar-brand { font-weight: 700; }
+
+.navbar-orange { background: var(--orange); }
+.navbar-orange .navbar-brand { color: #fff; }
+.navbar-orange .btn { border-color: rgba(255,255,255,0.2); }
+
+body { background: #fffaf5; }

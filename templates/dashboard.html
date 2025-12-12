@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Dashboard</h2>
+  {% if admin %}
+    <h4>Visão administrativa</h4>
+    <p><a href="/admin/">Ir para Admin (criar tarefas, gerenciar usuários)</a></p>
+    <h5>Rendimento dos membros</h5>
+    <table class="table table-sm">
+      <thead>
+        <tr><th>Usuário</th><th>Tarefas atribuídas</th><th>Concluídas</th><th>% concluído</th></tr>
+      </thead>
+      <tbody>
+        {% for u in users %}
+          <tr>
+            <td>{{ u.username }}</td>
+            <td>{{ u.total_assigned }}</td>
+            <td>{{ u.completed_tasks }}</td>
+            <td>{{ u.completion_rate|floatformat:1 }}%</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h5>Tarefas recentes</h5>
+    <ul>
+      {% for t in tasks %}
+        <li><a href="/tarefas/{{ t.pk }}/">{{ t.title }}</a> — {{ t.assigned_to }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h4>Suas tarefas</h4>
+    <ul>
+      {% for t in tasks %}
+        <li><a href="/tarefas/{{ t.pk }}/">{{ t.title }}</a> — {% if t.completed %}Concluída{% else %}Pendente{% endif %}</li>
+      {% empty %}
+        <li>Nenhuma tarefa atribuída.</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

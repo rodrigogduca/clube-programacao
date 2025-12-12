@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ task.title }}</h2>
+  <p>{{ task.description }}</p>
+  <p>Atribuída a: {{ task.assigned_to }}</p>
+  <p>Estado: {% if task.completed %}Concluída{% else %}Pendente{% endif %}</p>
+
+  <hr>
+  <h5>Discussão</h5>
+  <ul>
+    {% for c in task.comments.all %}
+      <li><strong>{{ c.author }}:</strong> {{ c.content }} <small>({{ c.created_at }})</small></li>
+    {% empty %}
+      <li>Sem comentários.</li>
+    {% endfor %}
+  </ul>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="content" class="form-label">Adicionar comentário</label>
+      <textarea name="content" id="content" class="form-control" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Enviar</button>
+  </form>
+{% endblock %}
