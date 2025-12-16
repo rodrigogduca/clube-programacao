@@ -1,8 +1,8 @@
 /* Base Reset e Variáveis de Tema */
 :root {
     /* 🟠 CORES ALTERADAS PARA LARANJA E TONS COMPLEMENTARES */
-    --color-primary: #d57908; /* Laranja Escuro (Dark Orange) */
-    --color-secondary: #c86b00; /* Dourado/Amarelo (Gold) para harmonizar */
+    --color-primary: #ca750e; /* Laranja Escuro (Dark Orange) */
+    --color-secondary: #ca750e; /* Dourado/Amarelo (Gold) para harmonizar */
     
     --color-text-light: #333;
     --color-text-dark: #f4f4f4;
@@ -149,7 +149,7 @@ h1, h2, h3, h4 {
     transition: background-color 0.2s;
 }
 .btn-primary:hover {
-    background-color: #E6C200; /* Dourado/Amarelo mais escuro no hover */
+    background-color: #e67300; /* Dourado/Amarelo mais escuro no hover */
     text-decoration: none;
 }
 
