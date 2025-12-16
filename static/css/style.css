@@ -1,8 +1,8 @@
 /* Base Reset e Variáveis de Tema */
 :root {
     /* 🟠 CORES ALTERADAS PARA LARANJA E TONS COMPLEMENTARES */
-    --color-primary: #e27f06; /* Laranja Escuro (Dark Orange) */
-    --color-secondary: #FFD700; /* Dourado/Amarelo (Gold) para harmonizar */
+    --color-primary: #d57908; /* Laranja Escuro (Dark Orange) */
+    --color-secondary: #c86b00; /* Dourado/Amarelo (Gold) para harmonizar */
     
     --color-text-light: #333;
     --color-text-dark: #f4f4f4;
