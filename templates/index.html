@@ -1,40 +1,83 @@
-{% extends 'base.html' %}
+{% load static %} <!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>Clube de Programação | SENAI CIMATEC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
 
-{% block content %}
-  <section class="hero mb-4">
-    <div class="row align-items-center">
-      <div class="col-md-7">
-        <h1 class="display-5 text-dark">Clube de Programação</h1>
-        <p class="lead">Comunidade estudantil para aprender, colaborar e construir projetos reais.</p>
-        <p class="mt-3">
-          <a class="btn btn-orange btn-lg me-2" href="/accounts/login/">Entrar</a>
-          <a class="btn btn-outline-orange btn-lg" href="/sobre/">Saber mais</a>
-        </p>
-      </div>
-      <div class="col-md-5 text-center">
-        <img src="/static/img/illustration-code.svg" alt="coding" style="max-width:220px;opacity:0.95">
-      </div>
-    </div>
-  </section>
+<body>
 
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card-soft">
-        <h5>Workshops</h5>
-        <p class="mb-0">Aulas práticas e hands-on para aprender novas tecnologias.</p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card-soft">
-        <h5>Maratonas</h5>
-        <p class="mb-0">Competições e desafios para desenvolver raciocínio e lógica.</p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card-soft">
-        <h5>Mentorias</h5>
-        <p class="mb-0">Apoio entre membros, orientação para projetos e dúvidas.</p>
-      </div>
-    </div>
-  </div>
-{% endblock %}
+    <header class="site-header">
+        
+        <div class="logo">
+            <h1><a href="/">Clube de Programação</a></h1>
+        </div>
+
+        <nav class="header-nav">
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+            
+            <a href="/login" class="btn-login" role="button">Login</a>
+        </div>
+    </header>
+
+    <main class="site-content">
+        
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Clube de Programação<br><span>SENAI CIMATEC</span></h2>
+                <p>
+                    Iniciativa estudantil focada em desenvolvimento de software,
+                    tecnologia e inovação.
+                </p>
+                <a href="#" class="btn btn-primary">Participe do Clube</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/500x300?text=Imagem+de+Programacao"
+                    alt="Programação: imagem de código e tecnologia"
+                    loading="lazy">
+            </div>
+        </section>
+
+        <section class="features">
+            <h3>O que fazemos?</h3>
+
+            <div class="cards">
+                <article class="card">
+                    <h4>👨‍💻 Estudos</h4>
+                    <p>Grupos de estudo e prática em programação.</p>
+                </article>
+
+                <article class="card">
+                    <h4>🚀 Projetos</h4>
+                    <p>Projetos reais desenvolvidos em equipe.</p>
+                </article>
+
+                <article class="card">
+                    <h4>🎯 Eventos</h4>
+                    <p>Hackathons, workshops e palestras.</p>
+                </article>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 Clube de Programação — SENAI CIMATEC</p>
+    </footer>
+
+    <script src="{% static 'js/theme.js' %}"></script>
+    
+</body>
+</html>
